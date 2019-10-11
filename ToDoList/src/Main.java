@@ -19,10 +19,13 @@ public class Main {
         String dateString = "22-02-2009";
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         LocalDate localDate = LocalDate.parse(dateString, formatter);
+        LocalDate localDate2 = LocalDate.parse("22-02-2005", formatter);
+
+
 
         groupOfTask.addTask(new Task("first", LocalDate.now(), new Project("dummy project")));
         groupOfTask.addTask(new Task("second", localDate, new Project("dummy project")));
-//        groupOfTask.addTask(new Task("third", LocalDate.now(), new Project("dummy project")));
+        groupOfTask.addTask(new Task("third", localDate2, new Project("dummy project")));
 //        System.out.println("adding tasks to list is done:\n--------------------------------------------------------");
 //        groupOfTask.showAll();
         //TODO test this sorting, find a way to sort using streams
@@ -30,6 +33,8 @@ public class Main {
 //        groupOfTask.saveList();
         groupOfTask.loadList();
         groupOfTask.showAll();
+        System.out.println("-------------------");
+        groupOfTask.sortTaskByDate();
 
 
     }

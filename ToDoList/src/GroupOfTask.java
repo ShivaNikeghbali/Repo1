@@ -54,15 +54,17 @@ public class GroupOfTask implements Serializable
 
 
     }
-
+   // add new tasks to the list
     public boolean addTask(Task task) {
         return list.add(task);
     }
 
+    // remove tasks from list
     public boolean removeTask(Task task) {
         return list.remove(task);
     }
 
+    // To show all the tasks which are in the list
     public void showAll() {
         int i = 1;
         for (Task task : list) {
@@ -75,14 +77,17 @@ public class GroupOfTask implements Serializable
 
     }
 
-    public void sortTaskBySate()
+    public void sortTaskByDate()
     {
-        Collections.sort(list);
-        showAll();
+        //Collections.sort(list);
+        //showAll();
         //                                 return this.getDate().compareTo(otherTask.getDate());
-        //list.stream().sorted((task1, task2) -> task1.getDate().compareTo(task2.getDate()));
+        list.stream().sorted((task1, task2) -> task1.getDate().compareTo(task2.getDate()));
+        //list.stream().sorted((task1, task2) -> task1.getProject().getName().compareTo(task2.getProject().getName()));
+        showAll();
     }
 
+    // To save whatever we have done with the list
     public void saveList() {
         try {
             FileOutputStream fout = new FileOutputStream(PATH);
@@ -94,6 +99,7 @@ public class GroupOfTask implements Serializable
         }
     }
 
+    // To load whatever we want from the list
     public void loadList() {
         try {
             FileInputStream fis = new FileInputStream(PATH);
