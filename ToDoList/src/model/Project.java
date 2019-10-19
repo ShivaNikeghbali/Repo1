@@ -9,6 +9,10 @@ public class Project implements Serializable {
         this.name = name;
     }
 
+    public static Project of(String name) {
+        return new Project(name);
+    }
+
     public String getName() {
         return name;
     }

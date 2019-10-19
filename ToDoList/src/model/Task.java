@@ -20,6 +20,13 @@ public class Task implements Serializable, Comparable
         this.status = Status.Not_Done;
     }
 
+    public Task(String title, LocalDate date, Project project, Status status) {
+        this.title = title;
+        this.date = date;
+        this.project = project;
+        this.status = status;
+    }
+
     public String getTitle() {
         return title;
     }

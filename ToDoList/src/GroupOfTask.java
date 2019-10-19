@@ -3,69 +3,37 @@ import model.Task;
 import java.io.*;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.Collections;
-import java.util.Date;
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class GroupOfTask implements Serializable
 {
-    private static final String PATH = "/Users/shivanike/Desktop/ToDoList/src/data";
+    private static final String PATH = "/Users/shivanike/Desktop/github/Repo1/ToDoList/src/data";
     private ArrayList<Task> list = new ArrayList<>();
 
-    //add method (that add a task to list)
-    //print all element in the list (taskList)
-    // remove specific eleemtn or task from the list
+    public ArrayList<Task> getList() {
+        return list;
+    }
 
-    public static void show(Date date, String project) {
 
-        //sort by date
+    public static void show(Date date, String project) {}
+
         // sort by project
-    }
 
-    public static void add() {
-
-//
-//       Scanner scanner = new Scanner(System.in);
-//       System.out.println("Write title you want to add: ");
-//       String title = scanner.nextLine();
-//       System.out.println("Enter the date: ");
-//       String dateStr = scanner.nextLine();
-//       Date date = new  SimpleDateFormat("MM/dd/yyyy").parse(dateStr);
-//       System.out.println("Enter the name of the project");
-//       String project = scanner.nextLine();
-//
-//       Task task = new Task(title,date,project);
-//       list.add(task);
-    }
-
-    public static void remove() {
-
-//       Scanner scanner = new Scanner(System.in);
-//       System.out.println("Write title you want to remove: ");
-//       String answer = scanner.nextLine();
-//       Scanner scanner2 = new Scanner(System.in);
-//       System.out.println("Enter the date: ");
-//       Scanner dateStr = new Scanner(System.in);
-//       String answer2 = scanner.nextLine();
-//       System.out.println("Enter the name of the project");
-//       String answer3 = scanner.nextLine();
-//
-
-
-    }
    // add new tasks to the list
     public boolean addTask(Task task) {
         return list.add(task);
+
     }
 
     // remove tasks from list
     public boolean removeTask(Task task) {
         return list.remove(task);
+
     }
 
     // To show all the tasks which are in the list
-    public void showAll() {
+    public void showAll(List<Task> list) {
         int i = 1;
         for (Task task : list) {
             System.out.println(i + ")  " + task);
@@ -76,15 +44,21 @@ public class GroupOfTask implements Serializable
     public void sortTask() {
 
     }
-
+    // sort tasks by date
     public void sortTaskByDate()
     {
         //Collections.sort(list);
         //showAll();
-        //                                 return this.getDate().compareTo(otherTask.getDate());
-        list.stream().sorted((task1, task2) -> task1.getDate().compareTo(task2.getDate()));
-        //list.stream().sorted((task1, task2) -> task1.getProject().getName().compareTo(task2.getProject().getName()));
-        showAll();
+
+        list.stream().sorted(Comparator.comparing(Task::getDate));
+        showAll(this.list);
+    }
+
+    public void sortTaskByProject(){
+
+        List newList = list.stream().sorted(Comparator.comparing(task -> task.getProject().getName())).collect(Collectors.toList());
+        showAll(newList);
+
     }
 
     // To save whatever we have done with the list
@@ -110,7 +84,6 @@ public class GroupOfTask implements Serializable
             System.out.println(ex.getMessage());
         }
     }
-
 
 }
 

@@ -1,2 +1,6 @@
 # Default ignored files
 /workspace.xml
+/bin
+.DS_Store
+*.class
+*.txt
