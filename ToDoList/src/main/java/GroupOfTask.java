@@ -7,7 +7,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class GroupOfTask implements Serializable
-{
+{   //The project's path
     private static final String PATH = "/Users/shivanike/Desktop/github/Repo1/ToDoList/src/data";
     private ArrayList<Task> list = new ArrayList<>();
 
@@ -18,7 +18,7 @@ public class GroupOfTask implements Serializable
 
     public static void show(Date date, String project) {}
 
-        // sort by project
+
 
    // add new tasks to the list
     public boolean addTask(Task task) {
@@ -53,7 +53,7 @@ public class GroupOfTask implements Serializable
         list.stream().sorted(Comparator.comparing(Task::getDate));
         showAll(this.list);
     }
-
+    // sort tasks by project name
     public void sortTaskByProject(){
 
         List newList = list.stream().sorted(Comparator.comparing(task -> task.getProject().getName())).collect(Collectors.toList());

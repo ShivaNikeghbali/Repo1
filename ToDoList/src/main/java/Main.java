@@ -16,10 +16,10 @@ public class Main {
 
     public static void main(String[] args) {
 
-//        GroupOfTask groupOfTask = new GroupOfTask();
-//        String dateString = "22-02-2009";
-//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-//        LocalDate localDate = LocalDate.parse(dateString, formatter);
+//     GroupOfTask groupOfTask = new GroupOfTask();
+//     String dateString = "22-02-2009";
+//      DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+//      LocalDate localDate = LocalDate.parse(dateString, formatter);
 //        LocalDate localDate2 = LocalDate.parse("22-02-2005", formatter);
 //
 //

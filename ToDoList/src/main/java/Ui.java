@@ -9,12 +9,12 @@ public class Ui {
 
     private Scanner scanner = new Scanner(System.in);
     GroupOfTask groupOfTask = new GroupOfTask();
-
+    // greeting message
     public void greet(){
         System.out.println("Welcome to my TodoList!!!!");
         start();
     }
-
+    // to see task's status
     private void start() {
         groupOfTask.loadList();
         int notDoneTasks = 0;
